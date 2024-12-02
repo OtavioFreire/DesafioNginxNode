@@ -1,3 +1,6 @@
+#Remove mysql
+mysql
+
 # Logs
 logs
 *.log

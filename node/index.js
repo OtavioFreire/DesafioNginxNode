@@ -19,6 +19,20 @@ const query = (connection, sql) => {
     });
 };
 
+const createTable = async () => {
+    try {
+        const mysql = require('mysql')
+        const connection = mysql.createConnection(config)
+    
+        await query(connection, `CREATE TABLE people (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL);`)
+    }
+    catch {
+        console.error('Tabela ja criada!');
+    }
+
+}
+createTable();
+
 app.get('/', async (req,res) => {
     const mysql = require('mysql')
     const connection = mysql.createConnection(config)
